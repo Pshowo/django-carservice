@@ -24,7 +24,7 @@ Time to services:
 2. Inflate tires 5 min. Those who want their tires inflated should be dealt with **next**.
 3. Diagnostic 30 min. Customers who require a diagnostic check should be served **last**.
 
-- [ ] create a handler that gives tickets to the customers. The handler should serve GET requests on the following URLs:
+- [x] create a handler that gives tickets to the customers. The handler should serve GET requests on the following URLs:
        
         <base_url>/get_ticket/change_oil
         <base_url>/get_ticket/inflate_tires
@@ -34,7 +34,7 @@ Time to services:
   
     > The line should be processed in the correct order!>
 
-- [ ] To calculate the estimated time, you should sum the time it will take to process all the tickets that will be worked on before the current one.
+- [x] To calculate the estimated time, you should sum the time it will take to process all the tickets that will be worked on before the current one.
         The estimated time should be in a element with the content Please wait around <minutes_to_wait> minutes, where <minutes_to_wait> is the estimated number of minutes:<div><div>
 
         <div>Your number is 7</div>
@@ -49,3 +49,15 @@ To change oil: 2 * 2 minutes = 4 minutes
 To inflate tires: 2 * 2 minutes + 3 * 5 minutes = 19 minutes
 To get diagnostics: 2 * 2 minutes + 3 * 5 minutes + 1 * 30 minutes = 49 minutes
  
+- [x] Page for operators with view on queue
+- [ ] They also want the ability to select when to process the next customer. A simple button that can be clicked to complete this action will work just fine.
+When a customer gets to the front of the queue, the operator needs to click the Process next button so work can begin. This should happen when one of the mechanics has finished the previous job and is ready to serve the next customer
+  
+- [ ] When the `Process next` button is clicked, the application selects the next customer according to the priority defined by the algorithm:
+
+    * If there are any customers in the oil change queue, they are served first.
+    * When the oil change queue is empty, customers in the tire inflation queue are next in line.
+    * Customers requiring diagnostics are served last.
+  
+  As soon as the operator presses the button, the selected ticket number should be displayed on screen for all customers to see, and the relevant queue's length should be reduced by one
+
