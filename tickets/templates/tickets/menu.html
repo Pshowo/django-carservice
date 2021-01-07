@@ -7,9 +7,23 @@
 <body>
     <h1>Menu:</h1>
     <div>
+
         {% for link in links %}
-            <a href="{{ link.url}}"> {{ link.text }}</a></br>
+        	<form action="{{link.url}}" method="post">
+                {% csrf_token %}
+                <a href="{{ link.url }}?ref_num={{refnum}}&services={{link.type}}&ser_time={{link.time}}">
+                    {{ link.text }}
+                </a></br>
+            </form>
+
         {% endfor %}
+    </div>
+    <div>
+        <ul>
+            <li>Oil: {{ line_of_cars.oil}}</li>
+            <li>Tires: {{ line_of_cars.tires}}</li>
+            <li>Test: {{ line_of_cars.test}}</li>
+        </ul>
     </div>
 </body>
 </html>
