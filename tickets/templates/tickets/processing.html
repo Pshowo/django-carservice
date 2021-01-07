@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Processing page</title>
+</head>
+<body>
+    <h2>Processing</h2>
+    <h3>Actual queue:</h3>
+    <div>Change oil queue: {{ queue.oil | length }}</div>
+    <div>Inflate tires queue: {{ queue.tires | length }}</div>
+    <div>Get diagnostic queue: {{ queue.test | length }}</div>
+    </br>
+    </br>
+
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Process next</button>
+    </form>
+    </br>
+    <footer><a href="menu">Home</a></footer>
+</body>
+</html>

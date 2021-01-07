@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.views import View
 
@@ -54,7 +54,6 @@ class Wait(View):
     def get(self, request, *args, **kwargs):
 
         global line_of_cars
-        print(request.GET.get())
         services = 0 if request.GET.get('services') is None else request.GET.get('services')
         if request.GET.get('ref_num') is None:
             ref_num = 0
@@ -75,3 +74,20 @@ class Wait(View):
             'services': services,
             "wait": wait
         })
+
+
+clicks = 0
+class Processing(View):
+
+    def get(self, request, *args, **kwargs):
+        return render(request, 'tickets/processing.html', {'clicks': clicks, "queue": line_of_cars})
+
+    def post(self, request, *args, **kwargs):
+        global clicks
+        click = request.POST
+        print(click)
+        print(clicks)
+        if click:
+            clicks += 1
+
+        return redirect('/processing')
