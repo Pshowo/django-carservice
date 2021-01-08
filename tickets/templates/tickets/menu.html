@@ -9,13 +9,7 @@
     <div>
 
         {% for link in links %}
-        	<form action="{{link.url}}" method="post">
-                {% csrf_token %}
-                <a href="{{ link.url }}?ref_num={{refnum}}&services={{link.type}}&ser_time={{link.time}}">
-                    {{ link.text }}
-                </a></br>
-            </form>
-
+            <div><a href="{{link.url}}">{{ link.text }}</a></div>
         {% endfor %}
     </div>
     <div>
