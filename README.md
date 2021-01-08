@@ -53,7 +53,7 @@ To get diagnostics: 2 * 2 minutes + 3 * 5 minutes + 1 * 30 minutes = 49 minutes
 - [ ] They also want the ability to select when to process the next customer. A simple button that can be clicked to complete this action will work just fine.
 When a customer gets to the front of the queue, the operator needs to click the Process next button so work can begin. This should happen when one of the mechanics has finished the previous job and is ready to serve the next customer
   
-- [ ] When the `Process next` button is clicked, the application selects the next customer according to the priority defined by the algorithm:
+- [x] When the `Process next` button is clicked, the application selects the next customer according to the priority defined by the algorithm:
 
     * If there are any customers in the oil change queue, they are served first.
     * When the oil change queue is empty, customers in the tire inflation queue are next in line.
